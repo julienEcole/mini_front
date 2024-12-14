@@ -1,7 +1,7 @@
 
 
 import 'package:mini_front/datasources/posts_data_source.dart';
-import 'package:mini_front/models/Post.dart';
+import 'package:mini_front/models/post_entity.dart';
 
 class FakePostsDataSource extends PostsDataSource {
   final List<Post> _fakePosts = [
