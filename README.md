@@ -30,15 +30,15 @@ Ce projet est un exemple d'application Flutter utilisant le pattern BLoC et un f
 
 2. **Installer les dépendances** :
 
-Assurez-vous d'avoir Flutter installé. Puis, dans le répertoire du projet :
-
     ```bash
-    flutter pub get```
+    flutter pub get
+
+Assurez-vous d'avoir Flutter installé. Puis, dans le répertoire du projet :
 
 3. **Lancer l\'application :**
 
     ```bash
-    flutter run```
+    flutter run
 
 Choisissez l\'appareil (simulateur, émulateur ou web) si nécessaire.
 
