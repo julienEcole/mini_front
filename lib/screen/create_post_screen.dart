@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_front/bloc/post_bloc.dart';
 import 'package:mini_front/bloc/post_event.dart';
-import 'package:mini_front/models/post_entity.dart';
+import 'package:mini_front/models/post_entity.dart'; // Import du post
 
 class CreatePostScreen extends StatelessWidget {
   const CreatePostScreen({super.key});

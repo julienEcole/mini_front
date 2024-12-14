@@ -5,6 +5,8 @@ import 'package:mini_front/bloc/post_event.dart';
 import 'package:mini_front/bloc/post_state.dart';
 
 class PostsListScreen extends StatelessWidget {
+  const PostsListScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
