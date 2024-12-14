@@ -6,7 +6,7 @@ import 'package:mini_front/repositories/posts_repository.dart';
 import 'package:mini_front/screen/create_post_screen.dart';
 import 'package:mini_front/screen/post_detail_screen.dart';
 import 'package:mini_front/screen/posts_list_screen.dart';
-import 'bloc/post_bloc.dart';
+import 'package:mini_front/bloc/post_bloc.dart';
 
 void main() {
   final repository = PostsRepository(FakePostsDataSource());
@@ -16,15 +16,13 @@ void main() {
 class MyApp extends StatelessWidget {
   final PostsRepository repository;
 
-  MyApp({required this.repository});
+  const MyApp({super.key, required this.repository});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter TP 5AL',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: 'Flutter TP',
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: BlocProvider(
         create: (context) => PostBloc(repository),
         child: PostsListScreen(),
@@ -38,7 +36,7 @@ class MyApp extends StatelessWidget {
             );
           case '/create_post':
             return MaterialPageRoute(
-              builder: (context) => CreatePostScreen(),
+              builder: (context) => const CreatePostScreen(),
             );
           default:
             return null;

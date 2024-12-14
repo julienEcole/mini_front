@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:mini_front/models/post_entity.dart';
 
-
 abstract class PostEvent extends Equatable {
   const PostEvent();
 
@@ -13,7 +12,6 @@ class LoadPosts extends PostEvent {}
 
 class CreatePost extends PostEvent {
   final Post post;
-
   const CreatePost(this.post);
 
   @override
@@ -22,7 +20,6 @@ class CreatePost extends PostEvent {
 
 class UpdatePost extends PostEvent {
   final Post post;
-
   const UpdatePost(this.post);
 
   @override

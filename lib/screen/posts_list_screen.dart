@@ -8,15 +8,18 @@ class PostsListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Posts')),
+      appBar: AppBar(title: const Text('Posts')),
       body: BlocBuilder<PostBloc, PostState>(
         builder: (context, state) {
           if (state is PostInitial) {
             context.read<PostBloc>().add(LoadPosts());
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (state is PostLoadInProgress) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (state is PostLoadSuccess) {
+            if (state.posts.isEmpty) {
+              return const Center(child: Text('No posts available'));
+            }
             return ListView.builder(
               itemCount: state.posts.length,
               itemBuilder: (context, index) {
@@ -25,23 +28,27 @@ class PostsListScreen extends StatelessWidget {
                   title: Text(post.title),
                   subtitle: Text(post.description),
                   onTap: () {
-                    // Navigate to post detail screen
+                    Navigator.pushNamed(
+                      context,
+                      '/post_detail',
+                      arguments: post,
+                    );
                   },
                 );
               },
             );
           } else if (state is PostLoadFailure) {
-            return Center(child: Text('Failed to load posts'));
+            return const Center(child: Text('Failed to load posts'));
           } else {
-            return Center(child: Text('Unknown state'));
+            return const Center(child: Text('Unknown state'));
           }
         },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Navigate to create post screen
+          Navigator.pushNamed(context, '/create_post');
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

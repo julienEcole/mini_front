@@ -1,5 +1,3 @@
-
-
 import 'package:mini_front/datasources/posts_data_source.dart';
 import 'package:mini_front/models/post_entity.dart';
 

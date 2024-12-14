@@ -1,10 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_front/bloc/post_event.dart';
 import 'package:mini_front/bloc/post_state.dart';
 import 'package:mini_front/repositories/posts_repository.dart';
-
-
 
 class PostBloc extends Bloc<PostEvent, PostState> {
   final PostsRepository repository;
@@ -23,7 +20,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
     on<CreatePost>((event, emit) async {
       emit(PostLoadInProgress());
       try {
-        final post = await repository.createPost(event.post);
+        await repository.createPost(event.post);
         final posts = await repository.getAllPosts();
         emit(PostLoadSuccess(posts));
       } catch (_) {
@@ -34,7 +31,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
     on<UpdatePost>((event, emit) async {
       emit(PostLoadInProgress());
       try {
-        final post = await repository.updatePost(event.post);
+        await repository.updatePost(event.post);
         final posts = await repository.getAllPosts();
         emit(PostLoadSuccess(posts));
       } catch (_) {

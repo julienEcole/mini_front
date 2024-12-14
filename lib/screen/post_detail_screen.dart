@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_front/bloc/post_bloc.dart';
 import 'package:mini_front/bloc/post_event.dart';
 import 'package:mini_front/models/post_entity.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PostDetailScreen extends StatelessWidget {
   final Post post;
@@ -15,20 +15,20 @@ class PostDetailScreen extends StatelessWidget {
     final descriptionController = TextEditingController(text: post.description);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Edit Post')),
+      appBar: AppBar(title: const Text('Edit Post')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: titleController,
-              decoration: InputDecoration(labelText: 'Title'),
+              decoration: const InputDecoration(labelText: 'Title'),
             ),
             TextField(
               controller: descriptionController,
-              decoration: InputDecoration(labelText: 'Description'),
+              decoration: const InputDecoration(labelText: 'Description'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 final updatedPost = Post(
@@ -36,7 +36,7 @@ class PostDetailScreen extends StatelessWidget {
                   title: titleController.text,
                   description: descriptionController.text,
                 );
-                context.read()<PostBloc>().add(UpdatePost(updatedPost));
+                context.read<PostBloc>().add(UpdatePost(updatedPost));
                 Navigator.pop(context);
               },
               child: const Text('Save'),

@@ -5,26 +5,28 @@ import 'package:mini_front/bloc/post_event.dart';
 import 'package:mini_front/models/post_entity.dart';
 
 class CreatePostScreen extends StatelessWidget {
+  const CreatePostScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final titleController = TextEditingController();
     final descriptionController = TextEditingController();
 
     return Scaffold(
-      appBar: AppBar(title: Text('Create Post')),
+      appBar: AppBar(title: const Text('Create Post')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: titleController,
-              decoration: InputDecoration(labelText: 'Title'),
+              decoration: const InputDecoration(labelText: 'Title'),
             ),
             TextField(
               controller: descriptionController,
-              decoration: InputDecoration(labelText: 'Description'),
+              decoration: const InputDecoration(labelText: 'Description'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 final newPost = Post(
@@ -35,7 +37,7 @@ class CreatePostScreen extends StatelessWidget {
                 context.read<PostBloc>().add(CreatePost(newPost));
                 Navigator.pop(context);
               },
-              child: Text('Create'),
+              child: const Text('Create'),
             ),
           ],
         ),
