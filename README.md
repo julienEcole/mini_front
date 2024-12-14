@@ -25,7 +25,7 @@ Ce projet est un exemple d'application Flutter utilisant le pattern BLoC et un f
 1. **Cloner le dépôt** :
 
    ```bash
-   git clone https://github.com/votre-nom-utilisateur/mini_front.git
+   git clone https://github.com/julienEcole/mini_front.git
    cd mini_front
 
 2. **Installer les dépendances** :
@@ -33,12 +33,13 @@ Ce projet est un exemple d'application Flutter utilisant le pattern BLoC et un f
 Assurez-vous d'avoir Flutter installé. Puis, dans le répertoire du projet :
 
     ```bash
-    flutter pub get
+    flutter pub get```
 
 3. **Lancer l\'application :**
 
     ```bash
-    flutter run
+    flutter run```
+
 Choisissez l\'appareil (simulateur, émulateur ou web) si nécessaire.
 
 ## Navigation
